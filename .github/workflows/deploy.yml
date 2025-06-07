@@ -3,19 +3,15 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Executa quando um push é feito para a branch `main`
   push:
     branches: ['main']
-  # Permite executar este workflow manualmente a partir da aba Actions
   workflow_dispatch:
 
-# Define as permissões para o token do GITHUB para permitir o deploy
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Permite apenas um deploy concorrente, cancelando execuções anteriores
 concurrency:
   group: 'pages'
   cancel-in-progress: true
@@ -26,22 +22,33 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
+          # Alteração 1: Aponta para o local correto do package-lock.json para o cache
+          cache-dependency-path: 'ProjetoS05/project/package-lock.json'
+
       - name: Install dependencies
+        # Alteração 2: Executa o comando na pasta do projeto
+        working-directory: './ProjetoS05/project'
         run: npm ci
+
       - name: Build
+        # Alteração 3: Executa o build na mesma pasta
+        working-directory: './ProjetoS05/project'
         run: npm run build
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Faz o upload do diretório 'dist'
-          path: './dist'
+          # Alteração 4: Aponta para a pasta 'dist' dentro do diretório do projeto
+          path: './ProjetoS05/project/dist'
 
   deploy:
     environment:
