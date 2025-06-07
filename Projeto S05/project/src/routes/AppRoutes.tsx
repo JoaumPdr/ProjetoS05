@@ -1,3 +1,5 @@
+// src/routes/AppRoutes.tsx
+
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from '../pages/LoginPage';
@@ -22,6 +24,7 @@ const AppRoutes: React.FC = () => {
       <Route 
         path="/" 
         element={
+          // CORRETO: A página inicial está protegida, forçando o login.
           <ProtectedRoute>
             <HomePage />
           </ProtectedRoute>
@@ -30,12 +33,14 @@ const AppRoutes: React.FC = () => {
       <Route 
         path="/restaurant" 
         element={
+          // CORRETO: A página do restaurante também está protegida.
           <ProtectedRoute>
             <RestaurantPage />
           </ProtectedRoute>
         } 
       />
-      <Route path="*" element={<Navigate to="/login\" replace />} />
+      {/* Qualquer outra rota redireciona para o login */}
+      <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>
   );
 };
