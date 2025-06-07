@@ -29,16 +29,16 @@ jobs:
           node-version: 20
           cache: 'npm'
           # Alteração 1: Aponta para o local correto do package-lock.json para o cache
-          cache-dependency-path: 'ProjetoS05/project/package-lock.json'
+          cache-dependency-path: 'Projeto S05/project/package-lock.json'
 
       - name: Install dependencies
         # Alteração 2: Executa o comando na pasta do projeto
-        working-directory: './ProjetoS05/project'
+        working-directory: './Projeto S05/project'
         run: npm ci
 
       - name: Build
         # Alteração 3: Executa o build na mesma pasta
-        working-directory: './ProjetoS05/project'
+        working-directory: './Projeto S05/project'
         run: npm run build
 
       - name: Setup Pages
@@ -48,7 +48,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Alteração 4: Aponta para a pasta 'dist' dentro do diretório do projeto
-          path: './ProjetoS05/project/dist'
+          path: './Projeto S05/project/dist'
 
   deploy:
     environment:
