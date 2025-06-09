@@ -66,7 +66,7 @@ const RestaurantPage: React.FC = () => {
     },
     {
       id: '4',
-      name: 'Hamburguer',
+      name: 'Picanha Grelhada',
       description: 'Picanha premium, arroz, farofa e vinagrete',
       price: 65.00,
       image: 'https://img.freepik.com/fotos-premium/picanha-tradicional-corte-brasileiro-de-carne-batata-frita-arroz-e-farofa_253722-376.jpg',
