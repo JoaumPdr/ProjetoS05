@@ -9,7 +9,7 @@ O projeto é uma aplicação web desenvolvida com **React, TypeScript e Vite**, 
 ## 📁 Estrutura de Arquivos
 
 O projeto está organizado da seguinte forma:
-/
+```
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml      # Configuração do deploy para o GitHub Pages
@@ -25,7 +25,7 @@ O projeto está organizado da seguinte forma:
 ├── package.json            # Lista de dependências e scripts do projeto
 ├── tailwind.config.js      # Arquivo de configuração do Tailwind CSS
 └── vite.config.ts          # Arquivo de configuração do Vite
-
+```
 ## ✨ Funcionalidades Principais
 
 * **Autenticação de Usuário:** Sistema de login seguro para acesso ao portal.
